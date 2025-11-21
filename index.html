@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<title>報價單表單（列印成 PDF）</title>
+<link rel="stylesheet" href="./css.css">
+</head>
+
+
+<body>
+<div class="title">
+    <div class="title top left">
+        <h1><u>報價單</u></h1>
+    </div>
+    <div class="title top right">
+        <div class="form-group-compact">
+            <label for="quoteNumber">報價單號</label>
+            <input type="text" id="quoteNumber" placeholder="自動產生：yymmdd" />
+        </div>
+        <div class="form-group-compact">
+            <label for="quoteDate">報價日期</label>
+            <input type="text" id="quoteDate" value="2025-11-20" />
+        </div>
+    </div>
+</div>
+
+<div class="customer-main-area">
+    <div class="customer-info-left">
+            <div class="form-group">
+                <label for="projectName">案件名稱<span class="required">*</span></label>
+                <input type="text" id="projectName" />
+            </div> 
+
+            <div class="form-group">
+                <label for="customerName">客戶名稱<span class="required">*</span></label>
+                <div class="customer-row">
+                    <input type="text" id="customerName" />
+                    <select id="customerType" style="width:120px;">
+                    <option value="">類型</option>
+                    <option value="先生">先生</option>
+                    <option value="小姐">小姐</option>
+                    <option value="股份有限公司">股份有限公司</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group"><label for="taxId">統一編號</label><input type="text" id="taxId" /></div>
+            <div class="form-group"><label for="contactPerson">聯絡人員</label><input type="text" id="contactPerson" /></div>
+            <div class="form-group"><label for="contactPhone">連絡電話</label><input type="text" id="contactPhone" /></div>
+        
+            <div class="form-group">
+                <label>公司地址</label>
+                <div class="address-line">
+                    <select id="companyCity"></select>
+                    <select id="companyDistrict"></select>
+                    <select id="companyRoad"></select>
+                    <input type="text" id="companyNumber" placeholder="門牌號碼" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label>工地地址</label>
+                <div class="address-line">
+                    <select id="siteCity"></select>
+                    <select id="siteDistrict"></select>
+                    <select id="siteRoad"></select>
+                    <input type="text" id="siteNumber" placeholder="門牌號碼" />
+                </div>
+            </div>
+
+    </div> 
+    
+    <div class="site-logistics-right">
+        <div class="form-group">
+            <label for="availableTime">施工時段</label>
+            <input type="text" id="availableTime" />
+        </div>
+        <div class="form-group">
+            <label for="accessCode">進場方式</label>
+            <input type="text" id="accessCode" />
+        </div>
+        <div class="form-group">
+            <label for="parking">是否車位</label>
+            <select id="parking">
+                <option value="">請選擇</option>
+                <option value="有">有</option>
+                <option value="無">無</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="floorPlan">平面圖檔</label>
+            <input type="text" id="floorPlan" placeholder="圖號或放置位置" />
+        </div>
+        <div class="form-group">
+            <label for="unloadingArea">卸貨區域</label>
+            <input type="text" id="unloadingArea" />
+        </div>
+        <div class="form-group">
+            <label for="specialNotes">注意事項</label>
+            <textarea id="specialNotes" rows="3"></textarea>
+        </div>
+    </div> 
+
+    <div class="flex-row-right">
+
+    <img src="logo.png" alt="公司 Logo" style="height: 200px;" />
+    </div>
+</div>
+
+<h2>商品明細</h2>
+<button type="button" class="btn btn-secondary" id="addItemBtn">新增品項</button>
+
+<table id="itemsTable">
+<thead>
+<tr>
+    <th style="width: 32px;">序號</th>
+    <th style="width: 140px;">品名</th>
+    <th style="width: 120px;">門片/框顏色</th>
+    <th style="width: 140px;">尺寸(寬/高)</th>
+    <th style="width: 60px;">數量</th>
+    <th style="width: 90px;">單價(未稅)</th>
+    <th style="width: 90px;">金額</th>
+    <th style="width: 90px;">門檔</th>
+    <th style="width: 80px;">把手</th>
+    <th style="width: 80px;">鉸鍊</th>
+    <th style="width: 80px;">加購</th>
+    <th>備註</th>
+    <th style="width: 60px;">操作</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+
+<div class="total-display">
+小計：<span id="subTotal">0</span>　稅額(5%)：<span id="taxAmount">0</span>　總價：<span id="grandTotal">0</span>
+</div>
+
+<!-- 備註欄 -->
+<h2>備註欄（上半區自填）</h2>
+<div class="form-group">
+<textarea id="remarks" rows="3" placeholder="例如：特殊施工條件、車位、卸貨區、平面圖說明等"></textarea>
+</div>
+
+<div class="actions">
+<button type="button" class="btn btn-primary" id="generatePdfBtn">產生 PDF（列印另存為 PDF）</button>
+</div>
+
+<div id="feedback" class="message"></div>
+</div>
+</body>
+<script src="taiwanData.js"> </script>
+<script src="js.js"> </script>
+</html>

@@ -1,0 +1,239 @@
+body {
+  font-family: Arial, "Microsoft JhengHei", sans-serif;
+  margin: 0;
+  padding: 20px;
+  background: #f5f5f5;
+}
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+label {
+    /* 移除 display: block; */
+    /* flex: 0 0 80px; */
+    margin-right: 8px; /* label 和 input 之間的間距 */
+    margin-bottom: 0; /* 移除原本的底部間距 */
+    font-size: 14px;
+}
+input[type="text"],
+input[type="number"],
+textarea,
+select {
+  /* width: 100%; */
+  padding: 6px 8px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+textarea {
+  resize: vertical;
+}
+.required {
+  color: #e53935;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 13px;
+}
+th, td {
+  border: 1px solid #ddd;
+  padding: 4px 6px;
+  text-align: left;
+}
+th {
+  background: #f0f0f0;
+}
+
+/* 頂部標題主容器：啟用左右分欄 */
+.title {
+    display: flex;
+    justify-content: space-between; /* 讓兩邊靠最外側 */
+    align-items: flex-end; /* 讓內容在底部對齊 */
+    margin-bottom: 20px;
+}
+
+/* 左側標題：佔 70% 寬度 */
+.title.top.left {
+    flex: 0 0 70%;
+    text-align: left; /* 讓標題靠左 */
+}
+
+/* 右側報價單號/日期：佔 30% 寬度 */
+.title.top.right {
+    flex: 0 0 30%;
+    /* 讓報價單號和日期垂直堆疊並靠右對齊 */
+    display: flex; 
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.flex-row {
+display: flex;
+gap: 16px;
+flex-wrap: wrap;
+}
+
+/* 按鈕樣式 */
+.btn {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  margin-right: 8px;
+}
+.btn-primary {
+  background: #1976d2;
+  color: white;
+}
+.btn-secondary {
+  background: #eeeeee;
+  color: #333;
+}
+.btn-danger {
+  background: #e53935;
+  color: white;
+}
+
+
+
+.actions {
+  margin-top: 16px;
+  text-align: right;
+}
+.total-display {
+  margin-top: 8px;
+  text-align: right;
+  font-size: 15px;
+  font-weight: bold;
+}
+.message {
+  margin-top: 10px;
+  font-size: 14px;
+}
+.message.error {
+  color: #c62828;
+}
+.message.success {
+  color: #2e7d32;
+}
+.size-wrapper {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  font-size: 12px;
+}
+.size-wrapper input {
+  width: 60px;
+}
+.address-line {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.address-line select {
+  width: auto;
+  min-width: 120px;
+}
+.address-line input[type="text"] {
+  width: 120px;
+}
+.customer-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+/* 1. 主容器樣式：啟用三欄 Flexbox */
+.customer-main-area {
+    display: flex; /* 啟用三欄分欄 */
+    gap: 12px;     /* 欄位間的間距 (可自行調整) */
+    margin-bottom: 20px; 
+    align-items: flex-start; /* 確保三欄從頂部對齊 */
+}
+
+/* 2. 左欄位 (客戶資訊)：佔 40% 寬度 */
+.customer-info-left {
+    flex: 0 0 40%; /* 佔總寬度 40% */
+}
+
+/* 3. 中欄位 (工地資訊)：佔 40% 寬度 */
+.site-logistics-right {
+    flex: 0 0 30%; /* 佔總寬度 40% */
+}
+
+/* 4. 右欄位 (報價單號/Logo)：佔 20% 寬度 */
+.flex-row-right {
+    flex: 0 0 30%; /* 佔總寬度 20% */
+    display: flex; /* 讓其內部元素（Label, Input, Logo）垂直堆疊 */
+    flex-direction: column; 
+    align-items: center; /* 讓內容靠右對齊 */
+    gap: 4px;
+
+    justify-content: center; /* 讓子元素在垂直軸上置中對齊 */
+}
+
+/* 確保右欄內的 Logo 靠底部 */
+.flex-row-right img {
+    /* margin-top: auto;  */
+    max-width: 100%;
+    height: auto;
+    
+}
+
+.form-group {
+    margin-bottom: 10px;
+    flex: 1; 
+    min-width: 220px;
+    
+    /* 新增：讓其內容（label, input）並排 */
+    display: flex;
+    align-items: center; /* 讓它們垂直置中對齊 */
+}
+
+
+/* 新增：右欄緊湊表單組樣式 */
+.form-group-compact {
+    width: 100%;
+    margin-bottom: 4px;
+
+    display: flex;
+    align-items: center;
+}
+/* 覆寫右欄的 label 樣式，佔用更小的寬度 */
+.form-group-compact label {
+    /* 這裡使用一個較小的固定寬度，例如 50px */
+    /* flex: 0 0 50px;  */
+    margin-right: 4px; /* 縮小間距 */
+}
+
+/* 確保右欄的 input 能夠自適應剩餘空間 */
+.form-group-compact input[type="text"] {
+    flex: 1; 
+    min-width: unset; /* 移除最小寬度限制，避免溢出 */
+}
+
+/* 媒體查詢也要更新，確保小屏幕時仍是垂直堆疊 */
+@media (max-width: 768px) {
+    .customer-main-area {
+        flex-direction: column; /* 將所有欄位改為上下堆疊 */
+        gap: 10px;
+    }
+    
+    /* 確保所有欄位在小屏幕上都佔滿 100% 寬度 */
+    .customer-info-left,
+    .site-logistics-right,
+    .flex-row-right {
+        flex: 0 0 100%;
+        padding: 0;
+        /* 右欄在小屏幕上需要恢復成左對齊，或保持垂直 */
+        align-items: flex-start;
+    }
+}
